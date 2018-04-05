@@ -32,7 +32,7 @@ $red_price :#e80f66;
 
 @mixin title {
   margin-bottom: 20px;
-  margin-top: 30px;
+  margin-top: 25px;
 }
 
 @mixin content {
@@ -44,16 +44,23 @@ $red_price :#e80f66;
 
 @mixin item {
   background-color: white;
-  width: 49.5%;
-  padding: 10px 10px 0px 10px;
+  width: 49.7%;
+  padding: 8.5px 8.5px 8px 8.5px;
   @include box-sizing(border-box);
   margin-bottom: 1px;
+  @media(min-width: 550px) {
+    width: 33%;
+    padding: 13px 13px 23px 13px;
+  }
 }
 
 @mixin name {
   @include fontsize(12);
   letter-spacing: +.1rem;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  @media(min-width: 550px) {
+    margin-bottom: 13px;
+  }
 }
 
 @mixin banner($background-color: $gray_brown) {
@@ -62,12 +69,12 @@ $red_price :#e80f66;
   background-color: $background-color;
   height: 45px;
   padding: 0px 15px;
+  margin-bottom: 1px;
   @include box-sizing(border-box);
   align-items: center;
 }
 
 @mixin banner_title($color: white) {
-  font-weight: bold;
   color: $color;
   @include fontsize(12);
   display: inline;
@@ -90,20 +97,34 @@ body {
     }
   }
   .container {
-    padding: 0 10px;
+    padding: 0;
+    @media(min-width: 750px) {
+      padding: 0 10px;
+    }
   }
 }
 
-header {
   #header_in {
     .logo {
       padding-top: 40px;
       text-align: center;
+      .sp_logo {
+        margin-bottom: 0px;
+        @media(min-width: 750px) {
+          display: none;
+        }
+      }
+      @media(max-width:749px) {
+        padding-top: 7px;
+        .pc_logo {
+          display: none;
+        }
+      }
     }
     .navi {
       text-align: center;
       .sp_navi {
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         @media(min-width: 550px) {
           padding-top: 70px;
           text-align: right;
@@ -149,7 +170,7 @@ header {
           display: none;
         }
         @media(min-width:750px) {
-          padding-top: 70px;
+          padding-top: 60px;
           text-align: right;
         }
         a {
@@ -164,13 +185,19 @@ header {
         }
       }
     }
-  }
-} // header
+  } // header
 main {
   .container {
     .row {
       #main-box {
+        width: 100%;
+        @media(min-width: 750px) {
+          width: 74.6%;
+        }
         #carousel {
+          @media(max-width: 749px) {
+            padding: 0 10px;
+          }
           .owl-theme {
             .owl-nav.disabled+.owl-dots {
               margin: 0;
@@ -198,6 +225,9 @@ main {
           }
         } //carousel
         #new-items {
+          @media(max-width: 749px) {
+            padding: 0 10px;
+          }
           .sp_title {
             @include sp_title;
             @media(min-width: 750px) {
@@ -216,9 +246,6 @@ main {
             @include content;
             .item {
               @include item;
-              @media(min-width: 550px) {
-                width: 33%;
-              }
             }
             .name {
               @include name;
@@ -226,6 +253,9 @@ main {
           }
         } //new-items
         #popular-items {
+          @media(max-width: 749px) {
+            padding: 0 10px;
+          }
           .sp_title {
             @include sp_title;
             @media(min-width: 750px) {
@@ -254,6 +284,9 @@ main {
           }
         } //popular-items
         #shopping-guide {
+          @media(max-width: 749px) {
+            padding: 0 10px;
+          }
           .sp_title {
             @include sp_title;
             @media(min-width: 750px) {
@@ -271,23 +304,30 @@ main {
           .content {
             @include content;
             .guide {
-              padding: 20px;
+              padding: 20px 20px 27px 20px;
               background-color: white;
               width: 49.5%;
               @include box-sizing(border-box);
               margin-bottom: 5px;
-              @media(max-width: 549px) {
+              @media(max-width: 749px) {
                 width: 100%;
+                padding: 20px 15px 32px;
               }
               .guide-title {
                 @include fontsize(16);
                 font-weight: bold;
                 color: $gray_brown;
-                line-height: 0.8rem;
+                margin-bottom: 17px;
+              }
+              .guide-title_k {
+                @include fontsize(16);
+                font-weight: bold;
+                color: $gray_brown;
+                margin-bottom: 12px;
               }
               .guide_menu {
-                margin-top: 10px;
-                margin-bottom: 10px;
+                margin-top: 6px;
+                margin-bottom: 5px;
                 font-weight: bold;
                 color: $gray_brown;
               }
@@ -296,11 +336,26 @@ main {
         } //shopping-guide
       }
       #side-box {
+        padding: 0 10px;
+        width: 100%;
+        @media(min-width: 750px) {
+          margin-left: 2.1%;
+          width: 23.3%;
+          padding: 0 0;
+        }
         .search {
           background-color: white;
           padding: 20px;
           margin-bottom: 10px;
+          img {
+            @media(max-width: 749px) {
+              display:none;
+            }
+          }
           .search_in {
+            background-image: url("../images/top/search_icon.png");
+            background-repeat: no-repeat;
+            background-position: 94% center;
             @include display-flex();
             @include justify-content(space-between);
             height: 16px;
@@ -345,14 +400,14 @@ main {
         }
         .about_in {
           background-color: white;
-          padding: 10px;
+          padding: 9px 10px;
           margin-bottom: 10px;
           @media(max-width: 550px) {
             @include display-flex();
           }
           @media(max-width:550px) {
             .about_img {
-              width: 50%;
+              width: 46%;
               padding-right: 10px;
             }
             p {
@@ -363,7 +418,7 @@ main {
             display: block;
             margin: 20px auto 10px auto;
             @media(max-width: 550px) {
-              margin: 10px auto 10px 0;
+              margin: 6px auto 6px 0;
             }
           }
         }
@@ -380,7 +435,7 @@ footer {
     border-bottom: thin solid $gray-brown;
     @media(min-width: 550px) {
       text-align: right;
-      margin-top: 90px;
+      margin-top: 40px;
       padding-bottom: 10px;
     }
   }
@@ -420,26 +475,34 @@ main {
           line-height: 35px;
           padding-left: 10px;
           margin-bottom: 10px;
+          @media(max-width: 749px) {
+            margin-right: 10px;
+            margin-left: 10px;
+          }
           a {
             color: $gray_brown;
           }
         }
         .img_sp {
           height: 85px;
-          @media(min-width: 550px) {
+          margin-right: 10px;
+          margin-left: 10px;
+          @media(min-width: 750px) {
             display: none;
           }
         }
         .img_pc {
           height: 170px;
-          @media(max-width: 549px) {
+          @media(max-width: 749px) {
             display: none;
           }
         }
         .list_navi {
-          margin-top: 20px;
           @include display-flex();
           @include justify-content(space-between);
+          @media(max-width: 749px) {
+            margin-top: 25px;
+          }
           .btn_li {
             text-transform: uppercase;
             @include inline-block;
@@ -456,6 +519,9 @@ main {
         #item_list {
           margin-top: 5px;
           margin-bottom: 20px;
+          @media(max-width: 749px) {
+            padding: 0 10px;
+          }
           .content {
             @include content;
             .item {
@@ -470,6 +536,9 @@ main {
           }
         }
         #recent-items {
+          @media(max-width: 749px) {
+            padding: 0 10px;
+          }
           .sp_title {
             @include sp_title;
             @media(min-width: 750px) {
@@ -488,7 +557,7 @@ main {
             @include content;
             .item {
               @include item;
-              @media(min-width: 550px) {
+              @media(min-width: 750px) {
                 width: 33%;
               }
             }
@@ -513,19 +582,18 @@ main {
           @include display-flex();
           @include flex-wrap(wrap);
           @include justify-content(space-between);
-          @media(max-width: 549px) {
-            @include flex-direction(column);
-            margin: 0 -50px;
-            padding: 20px 50px 0;
+          @media(max-width: 749px) {
+          @include flex-direction(column);
+            padding: 18px 10px 30px 10px;
+            
           }
           .products_name {
             @include fontsize(14);
             font-weight: bold;
             width: 70%;
             @include box-sizing(border-box);
-            margin-bottom: 30px;
+            margin-bottom: 27px;
             @media(max-width: 549px) {
-              padding-left: 10px;
               margin-bottom: 0px;
             }
           }
@@ -535,23 +603,22 @@ main {
             color: $gray_dark;
             width: 30%;
             @include box-sizing(border-box);
-            @media(max-width: 549px) {
+            @media(max-width: 749px) {
               @include flex-direction(column);
               text-align: left;
               padding-bottom: 10px;
-              padding-left: 10px;
             }
           }
           #display_wrap {
             border-top: 1px $gray-br solid;
             border-bottom: 1px $gray-br solid;
-            padding-top: 20px;
-            padding-bottom: 20px;
+            padding-top: 19px;
+            padding-bottom: 9px;
             @include display-flex();
             @include flex-wrap(wrap);
             @include justify-content(space-between);
             @media(max-width: 549px) {
-              @include flex-direction(column);
+            @include flex-direction(column);
               padding-top: 10px;
               padding-bottom: 5px;
             }
@@ -564,8 +631,9 @@ main {
               }
             }
             #list_img {
+              width: 29%;
+              margin-bottom: 0px;
               @include inline-block;
-              width: 29.4%;
               @media(max-width: 549px) {
                 width: 100%;
                 margin-top: 10px;
@@ -578,12 +646,13 @@ main {
                 width: 50%;
                 float: left;
                 list-style: none;
-                padding-left: 4%;
+                padding-left: 5.5%;
                 @include inline-block;
                 @include box-sizing(border-box);
-                margin-bottom: 0;
+                margin-bottom: 1.5%;
                 @media(max-width: 549px) {
-                  width: 19%;
+                  width: 18.8%;
+                  margin-bottom: 0px;
                   padding: 0;
                 }
                 img {
@@ -593,11 +662,14 @@ main {
             }
           } //display_wrap
           .color_size {
-            height: 150px;
+            height: 148px;
             width: 100%;
+            @media(max-width: 549px) {
+               height: 138px;
+              }
             .color_size_img {
               @include inline-block;
-              padding: 20px 0;
+              padding: 19px 0;
               @media(max-width: 549px) {
                 padding: 15px 0;
               }
@@ -608,13 +680,13 @@ main {
                 background-color: $base;
                 text-align: center;
                 border: 1px solid $gray_br;
-                padding: 10px 0;
+                padding: 9px 0;
                 color: $gray_brown;
               }
               td {
                 text-align: center;
                 border: 1px solid $gray_br;
-                padding: 10px 0;
+                padding: 9px 0;
                 input {
                   @include inline-block;
                   margin: 0px;
@@ -636,14 +708,20 @@ main {
             .p_q_in {
               @include display-flex();
               @include justify-content(space-between);
-              height: 70px;
+              height: 68px;
               border-top: 1px solid $gray_br;
               border-bottom: 1px solid $gray_br;
+              @media(max-width: 549px) {
+              height: 58px;
+            }
               .p_q_title {
                 width: 34%;
                 img {
                   @include inline-block;
-                  padding: 29px 0;
+                  padding: 28px 0;
+                   @media(max-width: 749px) {
+                 padding-top: 22px;
+                }
                 }
               }
               .italic {
@@ -653,8 +731,9 @@ main {
                 font-style: italic;
                 line-height: 70px;
                 width: 65%;
-                @media(max-width: 549px) {
+                @media(max-width: 749px) {
                   @include fontsize(14);
+                  line-height: 60px;
                 }
                 .red_p {
                   color: $red_price;
@@ -671,13 +750,20 @@ main {
             .p_q_ina {
               @include display-flex();
               @include justify-content(space-between);
-              height: 70px;
+              height: 58px;
               border-bottom: 1px solid $gray_br;
+              @media(min-width:749px){
+                border-bottom: none;
+                 height: 68px;
+              }
               .p_q_title {
                 width: 34%;
                 img {
                   @include inline-block;
-                  padding: 29px 0;
+                  padding: 27px 0;
+                   @media(max-width: 749px) {
+                 padding: 22px 0;
+                }
                 }
               }
               .q_box {
@@ -685,7 +771,7 @@ main {
                 text-align: center;
                 border: 1px solid $gray_br;
                 width: 150px;
-                height: 40px;
+                height: 38px;
               }
             }
           }
@@ -702,8 +788,14 @@ main {
           .products_dis_title {
             @include fontsize(16);
             color: $gray_brown;
-            margin-top: 30px;
+            padding-top: 30px;
             width: 100%;
+            border-top: 1px solid $gray_br;
+            @media(max-width: 549px) {
+              border-top: none;
+              padding-top: 25px;
+              margin-bottom: 15px;
+            }
           }
           .products_dis_title2 {
             @include fontsize(16);
@@ -711,6 +803,7 @@ main {
             border-top: 2px solid $gray_brown;
             padding-top: 18px;
             width: 100%;
+            margin-bottom: 15px;
             @media(min-width: 550px) {
               padding-top: 30px;
               margin-bottom: 30px;
@@ -718,6 +811,7 @@ main {
           }
           .cs_table {
             margin-top: 25px;
+            margin-bottom: 0px;
             width: 100%;
             th {
               width: 27.5%;
