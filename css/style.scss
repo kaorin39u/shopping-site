@@ -817,12 +817,14 @@ main {
               width: 27.5%;
               border: 1px solid $gray_br;
               text-align: center;
+              color: $gray-brown;
               vertical-align: middle;
               background-color: $base;
             }
             td {
               border: 1px solid $gray_br;
               padding: 10px 15px;
+              color: $gray-brown;
             }
           }
         } //item_ditails

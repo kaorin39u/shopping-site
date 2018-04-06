@@ -830,10 +830,12 @@ main .container .row #main-box #item_details {
       width: 27.5%;
       border: 1px solid #e2ddd4;
       text-align: center;
+      color: #887f69;
       vertical-align: middle;
       background-color: #f9f8f6; }
     main .container .row #main-box #item_details .cs_table td {
       border: 1px solid #e2ddd4;
-      padding: 10px 15px; }
+      padding: 10px 15px;
+      color: #887f69; }
 
 /*# sourceMappingURL=style.css.map */
